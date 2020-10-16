@@ -9,11 +9,14 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity{
+import java.util.Random;
+
+public class MainActivity extends AppCompatActivity {
 
     // 1 : Khai báo biến
     TextView mTv;
     Button mBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,5 +62,14 @@ public class MainActivity extends AppCompatActivity{
 //            Log.d("BBB",num4 + "");
 //        }
 //        Toast.makeText(this, num4 + "", Toast.LENGTH_SHORT).show();
+
+        // 3 - 107
+//        Random random = new Random();
+//        for (int i = 0; i < 20 ; i++) {
+//            int numRandom = random.nextInt(107 - 3 + 1) + 3;
+//            Log.d("BBB",numRandom + "");
+//        }
+
+
     }
 }
