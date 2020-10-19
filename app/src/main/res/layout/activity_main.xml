@@ -6,20 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
-        android:textSize="40sp"
-        android:text="Hello Word"
-        android:layout_width="wrap_content"
+        android:textAllCaps="true"
+        android:textColor="#f20"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:text="Ứng dụng random"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-    <Button
-        android:id="@+id/buttonClick"
-        android:textSize="20sp"
-        android:text="Click"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+
 
 </LinearLayout>

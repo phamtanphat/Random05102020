@@ -22,15 +22,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // 2 : ánh xạ
-        mTv = findViewById(R.id.textView);
-        mBtn = findViewById(R.id.buttonClick);
 
-        // Hàm log
-        // ctrl + p : xem tham số truyền vào
-        //Log.d("BBB",mTv.getText().toString());
 
-        // Hàm Thông báo
+    }
+
+}
+
+// 2 : ánh xạ
+//        mTv = findViewById(R.id.textView);
+//        mBtn = findViewById(R.id.buttonClick);
+
+// Hàm log
+// ctrl + p : xem tham số truyền vào
+//Log.d("BBB",mTv.getText().toString());
+
+// Hàm Thông báo
 //        Toast
 //                .makeText(MainActivity.this , "Hello" , Toast.LENGTH_SHORT)
 //                .show();
@@ -48,28 +54,24 @@ public class MainActivity extends AppCompatActivity {
 //                Toast.makeText(MainActivity.this, "textview", Toast.LENGTH_SHORT).show();
 //            }
 //        });
-        // built in function : Log.d() , Math
-        // Làm tròn
-        //float num1 =  Math.round(1.5f);
-        // Làm tròn xuống : floor (Sàn nhà)
-        //double num2 = Math.floor(1.9999999);
-        // Làm tròn lên : ceil (trần nhà)
-        //double num3 = Math.ceil(1.01);
-        // random
-        // 0 - 5
+// built in function : Log.d() , Math
+// Làm tròn
+//float num1 =  Math.round(1.5f);
+// Làm tròn xuống : floor (Sàn nhà)
+//double num2 = Math.floor(1.9999999);
+// Làm tròn lên : ceil (trần nhà)
+//double num3 = Math.ceil(1.01);
+// random
+// 0 - 5
 //        for (int i = 0; i < 100 ; i++) {
 //            double num4 = Math.floor(Math.random() * 6);
 //            Log.d("BBB",num4 + "");
 //        }
 //        Toast.makeText(this, num4 + "", Toast.LENGTH_SHORT).show();
 
-        // 3 - 107
+// 3 - 107
 //        Random random = new Random();
 //        for (int i = 0; i < 20 ; i++) {
 //            int numRandom = random.nextInt(107 - 3 + 1) + 3;
 //            Log.d("BBB",numRandom + "");
 //        }
-
-
-    }
-}
