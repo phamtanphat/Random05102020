@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,18 +14,16 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    // 1 : Khai báo biến
-    TextView mTv;
-    Button mBtn;
-
+    EditText mEdtMax, mEdtMin;
+    Button mBtnRandom;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
+        // Hàm trong java : Tái sử dụng code
     }
+
 
 }
 
@@ -75,3 +74,13 @@ public class MainActivity extends AppCompatActivity {
 //            int numRandom = random.nextInt(107 - 3 + 1) + 3;
 //            Log.d("BBB",numRandom + "");
 //        }
+
+// 1 : Access modifier (phạm vi truy cập : class , function , interface , ...)
+// 2 : Result (Giá trị sau khi thực thi)
+// 3 : Name (Tên hàm)
+// 4 : Parameter (Tham số truyền vào)
+
+//    1       2   3       4
+//    private String setName(String name){
+//        return "";
+//    }
