@@ -16,8 +16,9 @@ public class MainActivity extends AppCompatActivity {
 
     EditText mEdtMax, mEdtMin;
     Button mBtnRandom;
-    String mTxtMax,mTxtMin;
-    int mSMin,mSMax;
+    String mTxtMax, mTxtMin;
+    int mSMin, mSMax;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,15 +29,25 @@ public class MainActivity extends AppCompatActivity {
         // Task 1 : Valid (Khi click button)
 //            + Kiểm tra chuỗi trong edittext khác rỗng
 //            + Kiểm tra số max không được bé hoăc bằng hơn min (max = min + 1)
+        // Task 2 : Random (Khi click button)
+//            + Hiển thị kết quả random vào trong text : 1 - 2 -
+        // Task 3 : Random (Nang cao)
+//            + Không có kết quả trùng : 1 - 2 - 3 -
+//            + Xử lý kiểm tra khi hết số thông báo
+        // Task 4 :
+//            + Hiển thị giao diện : 1 - 2 - 3
         event();
 
+
     }
+
     private void initView() {
         mBtnRandom = findViewById(R.id.buttonRandom);
         mEdtMax = findViewById(R.id.editTextMax);
         mEdtMin = findViewById(R.id.editTextMin);
         mSMin = mSMax = -1;
     }
+
     private void event() {
         mBtnRandom.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,15 +55,22 @@ public class MainActivity extends AppCompatActivity {
                 mTxtMax = mEdtMax.getText().toString();
                 mTxtMin = mEdtMin.getText().toString();
 
-                if (mTxtMax.length() <= 0 || mTxtMin.length() <= 0){
+                // Kiểm tra khác 0
+                if (mTxtMax.length() <= 0 || mTxtMin.length() <= 0) {
                     Toast.makeText(MainActivity.this, "Bạn chưa nhập đủ thông tin", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
+                // Kiểm tra giá trị min và max
+                mSMax = Integer.parseInt(mTxtMax);
+                mSMin = Integer.parseInt(mTxtMin);
 
+                if (mSMax <= mSMin){
+                    mSMax = mSMin + 1;
+                }
 
-
-
+                // Gắn lại giao diện
+                mEdtMax.setText(mSMax + "");
             }
         });
     }
