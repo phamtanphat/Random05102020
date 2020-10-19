@@ -16,17 +16,47 @@ public class MainActivity extends AppCompatActivity {
 
     EditText mEdtMax, mEdtMin;
     Button mBtnRandom;
+    String mTxtMax,mTxtMin;
+    int mSMin,mSMax;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         // Hàm trong java : Tái sử dụng code
+        initView();
+        // Task 1 : Valid (Khi click button)
+//            + Kiểm tra chuỗi trong edittext khác rỗng
+//            + Kiểm tra số max không được bé hoăc bằng hơn min (max = min + 1)
+        event();
+
     }
+    private void initView() {
+        mBtnRandom = findViewById(R.id.buttonRandom);
+        mEdtMax = findViewById(R.id.editTextMax);
+        mEdtMin = findViewById(R.id.editTextMin);
+        mSMin = mSMax = -1;
+    }
+    private void event() {
+        mBtnRandom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mTxtMax = mEdtMax.getText().toString();
+                mTxtMin = mEdtMin.getText().toString();
+
+                if (mTxtMax.length() <= 0 || mTxtMin.length() <= 0){
+                    Toast.makeText(MainActivity.this, "Bạn chưa nhập đủ thông tin", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
 
+
+
+
+            }
+        });
+    }
 }
-
 // 2 : ánh xạ
 //        mTv = findViewById(R.id.textView);
 //        mBtn = findViewById(R.id.buttonClick);
