@@ -10,7 +10,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Random;
+import java.util.Vector;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         // Hàm trong java : Tái sử dụng code
         initView();
         // Task 1 : Valid (Khi click button)
@@ -41,9 +45,22 @@ public class MainActivity extends AppCompatActivity {
 //            + Hiển thị giao diện : 1 - 2 - 3
         event();
 
-
+        // Array
+//        int[] arrNums = new int[10];
+//        int[] arrNums1 = {1,2,3,4,5,6,7,8,9,10};
+//        arrNums1[0] = 11;
+//        Log.d("BBB",arrNums1[0] + "");
+        // List (Arraylist)
+        List<String> arrayList = new ArrayList<>();
+        // insert
+        arrayList.add("Teo"); // 0
+        arrayList.add("Ti"); // 1
+        // update
+        arrayList.set(0 , "Tuan");
+        // remove
+        arrayList.remove(0);
+        Log.d("BBB",arrayList.get(0));
     }
-
     private void initView() {
         mBtnRandom = findViewById(R.id.buttonRandom);
         mEdtMax = findViewById(R.id.editTextMax);
