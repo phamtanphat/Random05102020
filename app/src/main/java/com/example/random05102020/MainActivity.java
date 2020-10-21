@@ -27,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
     int mSMin, mSMax;
     Random mRandom;
     int mResult = -1;
+    int mIndex = -1;
     String mResults = "";
     List<Integer> mArrNum;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,8 +47,6 @@ public class MainActivity extends AppCompatActivity {
         // Task 4 :
 //            + Hiển thị giao diện : 1 - 2 - 3
         event();
-
-
     }
 
     private void initView() {
@@ -93,17 +91,38 @@ public class MainActivity extends AppCompatActivity {
                     }
                     disableView(mEdtMin);
                     disableView(mEdtMax);
+                    disableView(mBtnRange);
                 }
+            }
+        });
+        mBtnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                enableView(mEdtMin);
+                enableView(mEdtMax);
+                mEdtMin.setText("");
+                mEdtMax.setText("");
+                mResults = "";
+                mTvResult.setText(mResults);
             }
         });
         mBtnRandom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (mArrNum.size() > 0){
+                    mIndex = mRandom.nextInt(mArrNum.size());
+                    mResult = mArrNum.get(mIndex);
+                    mResults += mResult + " - ";
+                    if (mArrNum.size() == 1){
+                        mResults = mResults.substring(0 , mResults.length() - 3);
+                    }
 
+                    mTvResult.setText(mResults);
+                    mArrNum.remove(mIndex);
+                }else{
+                    Toast.makeText(MainActivity.this, "Ket thuc", Toast.LENGTH_SHORT).show();
+                }
 
-                mResult = mRandom.nextInt(mSMax - mSMin + 1) + mSMin;
-                mResults += mResult + " - ";
-                mTvResult.setText(mResults);
             }
         });
     }
