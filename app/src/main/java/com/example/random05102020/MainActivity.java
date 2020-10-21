@@ -17,8 +17,11 @@ public class MainActivity extends AppCompatActivity {
     EditText mEdtMax, mEdtMin;
     Button mBtnRandom;
     String mTxtMax, mTxtMin;
+    TextView mTvResult;
     int mSMin, mSMax;
-
+    Random mRandom;
+    int mResult = -1;
+    String mResults = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +48,9 @@ public class MainActivity extends AppCompatActivity {
         mBtnRandom = findViewById(R.id.buttonRandom);
         mEdtMax = findViewById(R.id.editTextMax);
         mEdtMin = findViewById(R.id.editTextMin);
+        mTvResult = findViewById(R.id.textViewResult);
         mSMin = mSMax = -1;
+        mRandom = new Random();
     }
 
     private void event() {
@@ -68,9 +73,12 @@ public class MainActivity extends AppCompatActivity {
                 if (mSMax <= mSMin){
                     mSMax = mSMin + 1;
                 }
-
                 // Gắn lại giao diện
                 mEdtMax.setText(mSMax + "");
+
+                mResult = mRandom.nextInt(mSMax - mSMin + 1) + mSMin;
+                mResults += mResult + " - ";
+                mTvResult.setText(mResults);
             }
         });
     }
