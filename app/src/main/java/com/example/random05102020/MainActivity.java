@@ -21,13 +21,15 @@ import java.util.Vector;
 public class MainActivity extends AppCompatActivity {
 
     EditText mEdtMax, mEdtMin;
-    Button mBtnRandom;
+    Button mBtnRandom, mBtnRange, mBtnReset;
     String mTxtMax, mTxtMin;
     TextView mTvResult;
     int mSMin, mSMax;
     Random mRandom;
     int mResult = -1;
     String mResults = "";
+    List<Integer> mArrNum;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,33 +48,23 @@ public class MainActivity extends AppCompatActivity {
 //            + Hiển thị giao diện : 1 - 2 - 3
         event();
 
-        // Array
-//        int[] arrNums = new int[10];
-//        int[] arrNums1 = {1,2,3,4,5,6,7,8,9,10};
-//        arrNums1[0] = 11;
-//        Log.d("BBB",arrNums1[0] + "");
-        // List (Arraylist)
-        List<String> arrayList = new ArrayList<>();
-        // insert
-        arrayList.add("Teo"); // 0
-        arrayList.add("Ti"); // 1
-        // update
-        arrayList.set(0 , "Tuan");
-        // remove
-        arrayList.remove(0);
-        Log.d("BBB",arrayList.get(0));
+
     }
+
     private void initView() {
         mBtnRandom = findViewById(R.id.buttonRandom);
         mEdtMax = findViewById(R.id.editTextMax);
         mEdtMin = findViewById(R.id.editTextMin);
         mTvResult = findViewById(R.id.textViewResult);
+        mBtnRange = findViewById(R.id.buttonRange);
+        mBtnReset = findViewById(R.id.buttonReset);
         mSMin = mSMax = -1;
         mRandom = new Random();
+        mArrNum = new ArrayList<>();
     }
 
     private void event() {
-        mBtnRandom.setOnClickListener(new View.OnClickListener() {
+        mBtnRange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mTxtMax = mEdtMax.getText().toString();
@@ -88,17 +80,38 @@ public class MainActivity extends AppCompatActivity {
                 mSMax = Integer.parseInt(mTxtMax);
                 mSMin = Integer.parseInt(mTxtMin);
 
-                if (mSMax <= mSMin){
+                if (mSMax <= mSMin) {
                     mSMax = mSMin + 1;
                 }
                 // Gắn lại giao diện
                 mEdtMax.setText(mSMax + "");
+
+                if (mArrNum != null) {
+                    mArrNum.clear();
+                    for (int i = mSMin; i <= mSMax; i++) {
+                        mArrNum.add(i);
+                    }
+                    disableView(mEdtMin);
+                    disableView(mEdtMax);
+                }
+            }
+        });
+        mBtnRandom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
 
                 mResult = mRandom.nextInt(mSMax - mSMin + 1) + mSMin;
                 mResults += mResult + " - ";
                 mTvResult.setText(mResults);
             }
         });
+    }
+    private void enableView(View v){
+        v.setEnabled(true);
+    }
+    private void disableView(View v){
+        v.setEnabled(false);
     }
 }
 // 2 : ánh xạ
